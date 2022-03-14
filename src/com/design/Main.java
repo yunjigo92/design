@@ -1,10 +1,7 @@
-package com.company.design;
+package com.design;
 
 import com.company.design.adapter.*;
-import com.company.design.singleton.AClass;
-import com.company.design.singleton.BClass;
-import com.company.design.singleton.CClass;
-import com.company.design.singleton.SocketClient;
+import com.design.adapter.*;
 
 public class Main {
 

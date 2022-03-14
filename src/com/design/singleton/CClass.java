@@ -1,4 +1,4 @@
-package com.company.design.singleton;
+package com.design.singleton;
 
 public class CClass {
 

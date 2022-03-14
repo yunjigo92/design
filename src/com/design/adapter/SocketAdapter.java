@@ -1,4 +1,4 @@
-package com.company.design.adapter;
+package com.design.adapter;
 
 public class SocketAdapter implements Electronic110V{
     private Electronic220V electronic220V;

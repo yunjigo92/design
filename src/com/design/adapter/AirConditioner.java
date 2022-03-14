@@ -1,4 +1,4 @@
-package com.company.design.adapter;
+package com.design.adapter;
 
 public class AirConditioner implements Electronic220V{
 

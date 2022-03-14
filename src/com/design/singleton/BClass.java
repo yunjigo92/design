@@ -1,13 +1,13 @@
-package com.company.design.singleton;
+package com.design.singleton;
 
-public class AClass {
+public class BClass {
 
     private SocketClient socketClient;
 
-    public AClass(){
+    public BClass(){
         this.socketClient = SocketClient.getInstance();
     }
-    public SocketClient getSocketClient(){
+    public SocketClient getSocketClient() {
         return this.socketClient;
     }
 }
