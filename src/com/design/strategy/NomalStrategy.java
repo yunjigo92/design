@@ -1,6 +1,6 @@
 package com.design.strategy;
 
-public class NomalStrategy implements EncofingStrategy{
+public class NomalStrategy implements EncodingStrategy{
 
     @Override
     public String encode(String text) {

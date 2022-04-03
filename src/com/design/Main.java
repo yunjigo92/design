@@ -15,7 +15,7 @@ import com.design.proxy.IBrowser;
 import com.design.strategy.AppendStrategy;
 import com.design.strategy.Base64Strategy;
 import com.design.strategy.Encoder;
-import com.design.strategy.EncofingStrategy;
+import com.design.strategy.EncodingStrategy;
 import com.design.strategy.NomalStrategy;
 
 import java.util.concurrent.atomic.AtomicLong;
@@ -64,8 +64,8 @@ public class Main {
 */
     /******************** 프록시 패턴 ***********************/
     //특히 AOP가 대표적인 프록시 패턴이다.
-/*
 
+/*
         Browser browser = new Browser("www.naver.com");
         browser.show();
         browser.show();
@@ -77,8 +77,8 @@ public class Main {
         browserProxy.show();
         browserProxy.show();
         browserProxy.show();
-*/
-/*    // 프록시 패턴 내에 AOP 활용해본 예제
+
+    // 프록시 패턴 내에 AOP 활용해본 예제
         AtomicLong start = new AtomicLong();
         AtomicLong end = new AtomicLong();
 
@@ -97,10 +97,11 @@ public class Main {
         System.out.println("loading first time : "+ end.get());
 
         aopBrower.show();
-        System.out.println("loading second time : "+ end.get());*/
+        System.out.println("loading second time : "+ end.get());
+*/
 
         /******************** 데코레이터 패턴 ***********************/
-        /*
+ /*       
         ICar audi = new Audi(1000);
         audi.showPrice();
 
@@ -115,8 +116,8 @@ public class Main {
         //a5
         ICar audi5 = new A5(audi,"A5");
         audi5.showPrice();
-        */
-
+        
+*/
         /******************** 옵저버 패턴 ***********************/
         /*
         Button button = new Button("버튼");
@@ -136,7 +137,8 @@ public class Main {
         */
 
         /******************** 파사드 패턴 ***********************/
-        /* 파사드 패턴 적용 전 사용법
+        // 파사드 패턴 적용 전 사용법
+        /*
         Ftp ftpClient = new Ftp("www.yunji.com",22, "home/etc");
         ftpClient.connect();
         ftpClient.moveDir();
@@ -151,9 +153,10 @@ public class Main {
 
         reader.fileDisconnect();
         writer.fileDisconnect();
-        ftpClient.disconnect(); */
-
-         /* 파사드 패턴 적용 후 사용법
+        ftpClient.disconnect(); 
+        */
+        /*
+        // 파사드 패턴 적용 후 사용법
         SftpClient sftpClient = new SftpClient("www.yunji.com",22,"home/etc","test.tmp");
 
         sftpClient.connect();
@@ -162,27 +165,28 @@ public class Main {
         sftpClient.disconnect();
         */
 
-        Encoder encoder = new Encoder();
+
+        /******************** 전략 패턴 ***********************/
         
-        //base64
-        EncofingStrategy base64 = new Base64Strategy();
-        //nomal
-        EncofingStrategy normal = new NomalStrategy();
+        Encoder encoder = new Encoder();
 
         String message = "hello java";
 
-        encoder.setEncodingStrategy(base64);
+        //base64
+        encoder.setEncodingStrategy(new Base64Strategy());
         String base64Result = encoder.getMessage(message);
         System.out.println(base64Result);
 
-        encoder.setEncodingStrategy(normal);
+        //normal
+        encoder.setEncodingStrategy(new NomalStrategy());
         String normalResult = encoder.getMessage(message);
         System.out.println(normalResult);
 
+        //append
         encoder.setEncodingStrategy(new AppendStrategy());
         String appendResult = encoder.getMessage(message);
         System.out.println(appendResult);
-
+        
     }
 
 }

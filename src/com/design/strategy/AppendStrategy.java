@@ -1,6 +1,6 @@
 package com.design.strategy;
 
-public class AppendStrategy implements EncofingStrategy{
+public class AppendStrategy implements EncodingStrategy{
 
     @Override
     public String encode(String text) {
